@@ -7,14 +7,17 @@ import numpy as np
 
 
 def plot_missingness(df):
-    """ Plot missing values in a DataFrame. """
+    """
+    Plot missing values in a DataFrame.
+    """
     plt.figure(figsize=(12, 8))
 
+    df = df.drop(columns=['customerID'], errors='ignore')
     missing = df.isnull()
     rows, cols = np.where(missing)
 
-    plt.scatter(rows, len(df.cols) - 1 - cols, marker='|')
-    plt.yticks(range(len(df.colums)), df.columns)
+    plt.scatter(rows, cols, marker='|')
+    plt.yticks(range(len(df.columns)), df.columns)
     plt.title('Missingness Plot')
 
     plt.tight_layout()
