@@ -13,7 +13,7 @@ def plot_missingness(df):
     missing = df.isnull()
     rows, cols = np.where(missing)
 
-    plt.scatter(rows, cols, marker='|')
+    plt.scatter(rows, len(df.cols) - 1 - cols, marker='|')
     plt.yticks(range(len(df.colums)), df.columns)
     plt.title('Missingness Plot')
 
