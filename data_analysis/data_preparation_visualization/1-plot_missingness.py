@@ -15,6 +15,7 @@ def plot_missingness(df):
 
     plt.scatter(rows, cols, marker='|')
     plt.yticks(range(len(df.colums)), df.columns)
+    plt.title('Missingness Plot')
 
     plt.tight_layout()
     plt.show()
