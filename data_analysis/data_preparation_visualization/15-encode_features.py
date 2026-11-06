@@ -29,9 +29,9 @@ def encode_features(df):
     binary_cols = ['Partner', 'Dependents', 'PaperlessBilling',
                    'SeniorCitizen']
     binary_oe = preprocessing.OrdinalEncoder(categories=[['No', 'Yes']])
-    binary_oe.fit(df[['Partner']])
+    binary_oe.fit(df[['Partner']].values)
     for col in binary_cols:
-        df[col] = binary_oe.transform(df[[col]]).astype(int).ravel()
+        df[col] = binary_oe.transform(df[[col]].values).astype(int).ravel()
 
     # tenure group: alphabetical order (the default for OrdinalEncoder)
     tenure_oe = preprocessing.OrdinalEncoder()
